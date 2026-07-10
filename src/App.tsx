@@ -451,21 +451,20 @@ export default function App() {
             <div className="flex flex-col gap-6">
 
               {/* Header Reality Card */}
-              <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm relative overflow-hidden">
-                <div className="absolute top-0 right-0 p-4">
-                  <span className="text-[10px] font-mono uppercase bg-indigo-50 text-indigo-600 px-2.5 py-1 rounded-full border border-indigo-100">
-                    Smoke-Test Completed
-                  </span>
-                </div>
-
-                <div className="flex items-start gap-4 pr-16">
-                  <div>
-                    <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+              <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+                <div className="flex flex-col-reverse sm:flex-row sm:items-start justify-between gap-4">
+                  <div className="flex-1">
+                    <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight">
                       {analysisResult.projectTitle}
                     </h2>
-                    <p className="text-indigo-600 font-display italic text-sm mt-1">
+                    <p className="text-indigo-600 font-display italic text-sm mt-1.5">
                       &ldquo;{analysisResult.tagline}&rdquo;
                     </p>
+                  </div>
+                  <div className="self-start">
+                    <span className="text-[10px] font-mono uppercase bg-indigo-50 text-indigo-600 px-2.5 py-1 rounded-full border border-indigo-100 inline-block whitespace-nowrap">
+                      Smoke-Test Completed
+                    </span>
                   </div>
                 </div>
 
@@ -480,11 +479,11 @@ export default function App() {
                 </div>
 
                 {/* Utility Export & Save bar */}
-                <div className="flex items-center justify-between border-t border-slate-100 mt-5 pt-4">
-                  <div className="flex items-center gap-2">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-slate-100 mt-5 pt-4">
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full sm:w-auto">
                     <button
                       onClick={handleSaveResult}
-                      className={`py-1.5 px-3.5 rounded-lg border text-xs font-medium font-display transition flex items-center gap-1.5 cursor-pointer ${
+                      className={`py-2 sm:py-1.5 px-3.5 rounded-lg border text-xs font-medium font-display transition flex items-center justify-center gap-1.5 cursor-pointer w-full sm:w-auto ${
                         activeSavedId
                           ? "bg-emerald-50 border-emerald-100 text-emerald-650 cursor-default"
                           : "bg-white border-slate-200 text-slate-700 hover:bg-slate-50"
@@ -496,14 +495,14 @@ export default function App() {
                     </button>
                     <button
                       onClick={handleCopyMarkdown}
-                      className="py-1.5 px-3.5 rounded-lg bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-medium font-display transition flex items-center gap-1.5 cursor-pointer"
+                      className="py-2 sm:py-1.5 px-3.5 rounded-lg bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-medium font-display transition flex items-center justify-center gap-1.5 cursor-pointer w-full sm:w-auto"
                       title="Copy DEV.to readme submission template"
                     >
                       {copiedReport ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
                       {copiedReport ? "Copied!" : "Export README"}
                     </button>
                   </div>
-                  <span className="text-[10px] font-mono text-slate-450">
+                  <span className="text-[10px] font-mono text-slate-450 text-center sm:text-right">
                     Press README to copy DEV.to challenge draft
                   </span>
                 </div>
