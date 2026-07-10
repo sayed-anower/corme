@@ -1,0 +1,6 @@
+{
+  "name": "SideHustle Smoke-Test",
+  "description": "Analyze your 2 A.M. passionate side-project ideas with AI to check feasibility, tech architecture, competitors, and monetization strategy.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
