@@ -82,12 +82,4 @@ This compiles the client asset bundle to `/dist/` and compiles the TypeScript se
 
 ---
 
-## 🏆 Submission to the #DevWeekend Challenge
-
-If you are using this tool to formulate submissions for the DEV.to challenge:
-1. Run your side-project idea through the **SideHustle Smoke-Test**.
-2. Click the **"Export README"** button on the completed dashboard.
-3. This copies a perfectly formatted Markdown document matching your concept directly to your clipboard.
-4. Use this Markdown as a comprehensive outline for your DEV.to submission post!
-
-*Happy hacking, and let's build products with legs!*
+*Happy dev, and let's build products with legs!*
