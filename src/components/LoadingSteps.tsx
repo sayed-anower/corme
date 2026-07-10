@@ -101,6 +101,9 @@ export default function LoadingSteps({ onCancel }: LoadingStepsProps) {
       setOverallProgress(prev => {
         if (prev < 95) {
           return Math.min(95, prev + progressStep);
+        } else if (prev < 99) {
+          // Slowly creep up to 99% to indicate continuous activity
+          return Math.min(99, prev + 0.1);
         }
         return prev;
       });
@@ -117,18 +120,22 @@ export default function LoadingSteps({ onCancel }: LoadingStepsProps) {
       "Optimizing database indices for 10 hypothetically simultaneous users.",
       "Searching for co-founders on HackerNews... found 0 available.",
       "Drafting pitch deck slide 1: 'The Problem with Existing Solutions'...",
-      "Brewing fresh server-side caffeine simulation..."
+      "Brewing fresh server-side caffeine simulation...",
+      "Still waiting for Gemini models... (the neural nets are debating your idea)",
+      "Gemini is cross-referencing with other failed Kickstarter projects...",
+      "Polishing the pitch slide for future angel investors...",
+      "Simulating 1,000,000 fake product impressions...",
+      "Checking domain availability for .com, .io, and .ai variants...",
+      "Consulting the late-night venture oracle..."
     ];
 
     const logTimer = setInterval(() => {
-      if (activeStepIdx < steps.length) {
-        const randomLog = funnyLogs[Math.floor(Math.random() * funnyLogs.length)];
-        setTerminalLogs(prev => [...prev, `[PROCESS] ${randomLog}`]);
-      }
-    }, 1200);
+      const randomLog = funnyLogs[Math.floor(Math.random() * funnyLogs.length)];
+      setTerminalLogs(prev => [...prev, `[PROCESS] ${randomLog}`]);
+    }, 1500);
 
     return () => clearInterval(logTimer);
-  }, [activeStepIdx]);
+  }, []);
 
   return (
     <div className="w-full max-w-2xl mx-auto p-6 bg-white rounded-2xl border border-indigo-100 shadow-md flex flex-col gap-6">

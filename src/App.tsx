@@ -116,8 +116,26 @@ export default function App() {
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || "Server failed to analyze the idea.");
+        let errMsg = "Server failed to analyze the idea.";
+        try {
+          const contentType = response.headers.get("content-type");
+          if (contentType && contentType.includes("application/json")) {
+            const errorData = await response.json();
+            errMsg = errorData.error || errMsg;
+          } else {
+            const textData = await response.text();
+            errMsg = textData.substring(0, 150) || errMsg;
+          }
+        } catch (e) {
+          errMsg = `Server Error (${response.status})`;
+        }
+        throw new Error(errMsg);
+      }
+
+      const contentType = response.headers.get("content-type");
+      if (!contentType || !contentType.includes("application/json")) {
+        const textData = await response.text();
+        throw new Error(`Unexpected server response format: ${textData.substring(0, 100)}`);
       }
 
       const data: SmokeTestAnalysis = await response.json();
@@ -250,11 +268,11 @@ export default function App() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-indigo-600"></span>
             </span>
-            Late-Night Project Feasibility Engine
+            Corme: Late-Night Project Feasibility Engine
           </div>
 
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 mb-4">
-            SideHustle <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-600">Smoke-Test</span>
+            Corme <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-600">Smoke-Test</span>
           </h1>
 
           <p className="text-slate-600 text-base sm:text-lg max-w-2xl leading-relaxed">
@@ -499,7 +517,7 @@ export default function App() {
                 </h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-                  <div className="flex justify-around items-center gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full justify-items-center">
                     <Gauge
                       value={analysisResult.feasibilityScore}
                       label="Feasibility"
@@ -787,7 +805,7 @@ export default function App() {
 
       {/* Footnote */}
       <footer className="border-t border-slate-200 py-8 px-6 mt-12 text-center text-slate-500 text-xs font-mono">
-        <p>&copy; 2026 SideHustle Smoke-Test. Driven securely via Google Gemini 3.5-flash. Happy Hacking!</p>
+        <p>&copy; 2026 Corme SideHustle Smoke-Test. Driven securely via Google Gemini. Happy Hacking!</p>
       </footer>
 
     </div>

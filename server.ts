@@ -3,6 +3,10 @@ import path from "path";
 import { createServer as createViteServer } from "vite";
 import { GoogleGenAI, Type } from "@google/genai";
 import dotenv from "dotenv";
+import dns from "dns";
+
+// Prefer IPv4 DNS resolution first to avoid fetch failed errors in sandboxed environments
+dns.setDefaultResultOrder("ipv4first");
 
 dotenv.config();
 
@@ -55,17 +59,23 @@ ${timeCommitment ? `Time Commitment constraint: ${timeCommitment}` : ""}
 
 Please analyze this idea and return a structured JSON response matching the required schema. Focus on finding real-world competitors (or similar products) and outlining a practical, rapid tech architecture.`;
 
-      const modelsToTry = ["gemini-3.5-flash", "gemini-3.1-flash-lite"];
+      const modelsToTry = [
+        "gemini-3.1-flash-lite",
+        "gemini-flash-latest",
+        "gemini-3.5-flash",
+        "gemini-3.1-pro-preview"
+      ];
       let response = null;
       let lastError: any = null;
 
       for (const modelName of modelsToTry) {
         let attempt = 0;
-        const maxAttempts = 3;
+        const maxAttempts = 2; // Keep attempts low per model to rotate quickly
         while (attempt < maxAttempts) {
           try {
             console.log(`Attempting analysis with model ${modelName} (Attempt ${attempt + 1}/${maxAttempts})...`);
-            response = await ai.models.generateContent({
+            
+            const apiCall = ai.models.generateContent({
               model: modelName,
               contents: prompt,
               config: {
@@ -170,15 +180,33 @@ Please analyze this idea and return a structured JSON response matching the requ
               }
             });
 
+            // 12-second timeout per API call to prevent hanging indefinitely
+            const timeoutPromise = new Promise<never>((_, reject) =>
+              setTimeout(() => reject(new Error("Request timed out (12s limit)")), 12000)
+            );
+
+            response = await Promise.race([apiCall, timeoutPromise]);
+
             if (response && response.text) {
               break; // Success!
             }
           } catch (err: any) {
             lastError = err;
             attempt++;
-            console.warn(`Model ${modelName} attempt ${attempt} failed:`, err.message || err);
+            const errMsg = err.message || String(err);
+            console.warn(`Model ${modelName} attempt ${attempt} failed:`, errMsg);
+            
+            const isTransient = errMsg.includes("503") || errMsg.includes("UNAVAILABLE") || errMsg.includes("high demand") || errMsg.includes("temporary");
+            if (isTransient) {
+              console.log(`Transient overload detected on ${modelName}.`);
+              if (attempt >= 2) {
+                console.log(`Quickly switching from overloaded model ${modelName} to next fallback...`);
+                break; // Switch to the next fallback model immediately instead of waiting for all retries
+              }
+            }
+
             if (attempt < maxAttempts) {
-              const delay = Math.pow(2, attempt) * 1000;
+              const delay = isTransient ? 1000 : Math.pow(2, attempt) * 1000;
               console.log(`Waiting ${delay}ms before retrying ${modelName}...`);
               await new Promise((resolve) => setTimeout(resolve, delay));
             }
