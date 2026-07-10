@@ -19,10 +19,10 @@ interface HistoryListProps {
 export default function HistoryList({ entries, activeId, onSelect, onDelete }: HistoryListProps) {
   if (entries.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center p-8 text-center bg-slate-900/30 rounded-2xl border border-dashed border-slate-800">
-        <Bookmark className="w-8 h-8 text-slate-700 mb-2" />
-        <span className="text-sm font-display text-slate-400">No Saved SideHustles</span>
-        <p className="text-xs text-slate-600 max-w-[200px] mt-1">
+      <div className="flex flex-col items-center justify-center p-8 text-center bg-slate-50 rounded-2xl border border-dashed border-slate-200">
+        <Bookmark className="w-8 h-8 text-slate-400 mb-2" />
+        <span className="text-sm font-display font-medium text-slate-700">No Saved SideHustles</span>
+        <p className="text-xs text-slate-500 max-w-[200px] mt-1">
           Once you analyze an idea, save it to compare side-by-side!
         </p>
       </div>
@@ -35,9 +35,9 @@ export default function HistoryList({ entries, activeId, onSelect, onDelete }: H
         const isActive = activeId === entry.id;
         const score = entry.analysis.feasibilityScore;
         
-        let scoreColor = "text-rose-400 border-rose-500/20 bg-rose-500/5";
-        if (score >= 75) scoreColor = "text-emerald-400 border-emerald-500/20 bg-emerald-500/5";
-        else if (score >= 45) scoreColor = "text-indigo-400 border-indigo-500/20 bg-indigo-500/5";
+        let scoreColor = "text-rose-600 border-rose-100 bg-rose-50";
+        if (score >= 75) scoreColor = "text-emerald-600 border-emerald-100 bg-emerald-50";
+        else if (score >= 45) scoreColor = "text-indigo-600 border-indigo-100 bg-indigo-50";
 
         return (
           <div
@@ -45,19 +45,19 @@ export default function HistoryList({ entries, activeId, onSelect, onDelete }: H
             onClick={() => onSelect(entry)}
             className={`group flex items-center justify-between p-3.5 rounded-xl border cursor-pointer transition-all ${
               isActive
-                ? "bg-indigo-500/10 border-indigo-500/50 text-slate-100"
-                : "bg-slate-900/60 border-slate-800 text-slate-400 hover:bg-slate-900/90 hover:border-slate-700 hover:text-slate-200"
+                ? "bg-indigo-50 border-indigo-200 text-slate-900"
+                : "bg-white border-slate-200 text-slate-600 hover:bg-slate-50 hover:border-slate-300 hover:text-slate-900"
             }`}
           >
             <div className="flex items-center gap-3 overflow-hidden">
-              <div className={`p-2 rounded-lg shrink-0 ${isActive ? "bg-indigo-500/20 text-indigo-400" : "bg-slate-800 text-slate-500 group-hover:bg-slate-700 group-hover:text-slate-400"}`}>
+              <div className={`p-2 rounded-lg shrink-0 ${isActive ? "bg-indigo-100 text-indigo-600" : "bg-slate-100 text-slate-400 group-hover:bg-slate-200 group-hover:text-slate-600"}`}>
                 <FileText className="w-4 h-4" />
               </div>
               <div className="flex flex-col min-w-0">
-                <span className="text-sm font-display font-medium text-slate-200 truncate leading-tight group-hover:text-indigo-300 transition-colors">
+                <span className="text-sm font-display font-medium text-slate-800 truncate leading-tight group-hover:text-indigo-600 transition-colors">
                   {entry.analysis.projectTitle}
                 </span>
-                <span className="text-[10px] font-mono text-slate-500 mt-1 truncate">
+                <span className="text-[10px] font-mono text-slate-400 mt-1 truncate">
                   {new Date(entry.timestamp).toLocaleDateString(undefined, {
                     month: "short",
                     day: "numeric",
@@ -74,12 +74,12 @@ export default function HistoryList({ entries, activeId, onSelect, onDelete }: H
               </span>
               <button
                 onClick={(e) => onDelete(entry.id, e)}
-                className="opacity-0 group-hover:opacity-100 p-1.5 rounded hover:bg-rose-500/10 hover:text-rose-400 text-slate-600 transition"
+                className="opacity-0 group-hover:opacity-100 p-1.5 rounded hover:bg-rose-50 hover:text-rose-600 text-slate-400 transition"
                 title="Delete saved idea"
               >
                 <Trash2 className="w-3.5 h-3.5" />
               </button>
-              <ChevronRight className="w-4 h-4 text-slate-600 group-hover:text-slate-400" />
+              <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-slate-600" />
             </div>
           </div>
         );

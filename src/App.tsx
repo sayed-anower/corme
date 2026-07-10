@@ -208,25 +208,25 @@ export default function App() {
       return {
         label: "The Golden Unicorn",
         desc: "High demand, low complexity, and maximum passion. You've struck absolute late-night developer gold. Start coding immediately.",
-        color: "text-emerald-400 bg-emerald-500/10 border-emerald-500/30",
+        color: "text-emerald-800 bg-emerald-50 border-emerald-200/80",
       };
     } else if (feasibility < 50 && passion >= 70) {
       return {
         label: "The Labor of Love",
         desc: "Technically a nightmare or logistically brutal, but you are deeply passionate. This is a classic long-term challenge. Perfect if you want to learn, risky as a rapid commercial hussle.",
-        color: "text-rose-400 bg-rose-500/10 border-rose-500/30",
+        color: "text-rose-800 bg-rose-50 border-rose-200/80",
       };
     } else if (feasibility >= 70 && passion < 50) {
       return {
         label: "The Pragmatic Utility",
         desc: "Super easy to build, but you have medium-to-low passion. You will likely get bored of this in 3 weeks. Try to automate the product fully or partner with an operator.",
-        color: "text-cyan-400 bg-cyan-500/10 border-cyan-500/30",
+        color: "text-cyan-800 bg-cyan-50 border-cyan-200/80",
       };
     } else {
       return {
         label: "The 2 A.M. Mirage",
         desc: "High complexity and low genuine excitement once the caffeine wears off. We suggest setting this idea aside and sleeping on it. You've avoided wasting months!",
-        color: "text-amber-400 bg-amber-500/10 border-amber-500/30",
+        color: "text-amber-800 bg-amber-50 border-amber-200/80",
       };
     }
   };
@@ -236,34 +236,28 @@ export default function App() {
     : null;
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-indigo-500/30 selection:text-indigo-200">
+    <div className="min-h-screen bg-slate-50 text-slate-800 font-sans selection:bg-indigo-100 selection:text-indigo-950">
       
-      {/* Dev Weekend Challenge Ribbon */}
-      <div className="bg-indigo-600 text-white text-[11px] font-mono py-1.5 px-4 text-center tracking-widest uppercase flex items-center justify-center gap-1.5 border-b border-indigo-500">
-        <Sparkles className="w-3.5 h-3.5 animate-spin text-cyan-300" />
-        Built for the <a href="https://dev.to/devteam/join-our-dev-weekend-challenge-passion-edition-1000-in-prizes-across-five-winners-submissions-10j5" target="_blank" rel="noopener noreferrer" className="underline hover:text-cyan-200 inline-flex items-center gap-0.5 font-bold">#DevWeekend Challenge <ExternalLink className="w-3 h-3" /></a>
-      </div>
-
       {/* Hero Header Area */}
       <header className="relative py-12 px-6 max-w-7xl mx-auto overflow-hidden">
         {/* Glow ambient decorations */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl -z-10" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-indigo-500/5 rounded-full blur-3xl -z-10" />
         <div className="absolute top-0 right-10 w-48 h-48 bg-cyan-500/5 rounded-full blur-2xl -z-10" />
 
         <div className="flex flex-col items-center text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-xs font-mono text-indigo-400 mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-xs font-mono text-indigo-600 mb-6">
             <span className="flex h-1.5 w-1.5 relative">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-indigo-500"></span>
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-indigo-600"></span>
             </span>
             Late-Night Project Feasibility Engine
           </div>
 
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white mb-4">
-            SideHustle <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">Smoke-Test</span>
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 mb-4">
+            SideHustle <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-600">Smoke-Test</span>
           </h1>
 
-          <p className="text-slate-400 text-base sm:text-lg max-w-2xl leading-relaxed">
+          <p className="text-slate-600 text-base sm:text-lg max-w-2xl leading-relaxed">
             Diagnose whether your passionate late-night side-project idea actually has commercial legs, or if you're just blinded by excitement. Instantly generate competitors, architectures, and monetization roadmaps.
           </p>
         </div>
@@ -274,67 +268,67 @@ export default function App() {
         
         {/* LEFT COLUMN: Input Form and Templates (span 5) */}
         <section className="lg:col-span-5 flex flex-col gap-6">
-          <div className="bg-slate-900/85 rounded-2xl border border-slate-800 p-6 shadow-xl backdrop-blur-md">
-            <div className="flex items-center gap-2.5 border-b border-slate-800 pb-4 mb-5">
-              <div className="p-2 bg-indigo-500/10 text-indigo-400 rounded-lg">
+          <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+            <div className="flex items-center gap-2.5 border-b border-slate-100 pb-4 mb-5">
+              <div className="p-2 bg-indigo-50 text-indigo-600 rounded-lg">
                 <Lightbulb className="w-5 h-5" />
               </div>
               <div>
-                <h2 className="font-display font-bold text-lg text-slate-100">Describe Your Idea</h2>
-                <p className="text-xs text-slate-400">Draft your passionate, raw 2 A.M. vision</p>
+                <h2 className="font-display font-bold text-lg text-slate-900">Describe Your Idea</h2>
+                <p className="text-xs text-slate-500">Draft your passionate, raw 2 A.M. vision</p>
               </div>
             </div>
 
             <form onSubmit={handleAnalyze} className="flex flex-col gap-5">
               <div className="flex flex-col gap-2">
-                <label className="text-xs uppercase font-mono tracking-wider text-slate-400 flex items-center justify-between">
-                  <span>The Raw Project Idea <span className="text-indigo-400 font-bold">*</span></span>
-                  <span className="text-[10px] text-slate-500 font-normal">Messy text welcome</span>
+                <label className="text-xs uppercase font-mono tracking-wider text-slate-500 flex items-center justify-between">
+                  <span>The Raw Project Idea <span className="text-indigo-600 font-bold">*</span></span>
+                  <span className="text-[10px] text-slate-400 font-normal">Messy text welcome</span>
                 </label>
                 <textarea
                   value={idea}
                   onChange={(e) => setIdea(e.target.value)}
                   placeholder="e.g. A lightweight sticker for coffee mugs with a Raspberry Pi that sends a webhook Slack alert when the coffee drops to the perfect temperature range (130-140F)..."
-                  className="w-full h-32 px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 text-sm placeholder-slate-600 transition text-slate-200 outline-none resize-none"
+                  className="w-full h-32 px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 text-sm placeholder-slate-450 transition text-slate-800 outline-none resize-none"
                   required
                 />
               </div>
 
               {/* Optional Advanced Tuning */}
-              <div className="border-t border-slate-800 pt-4 flex flex-col gap-4">
-                <h3 className="text-xs uppercase font-mono tracking-wider text-indigo-400">Optional Diagnostics Tuning</h3>
+              <div className="border-t border-slate-100 pt-4 flex flex-col gap-4">
+                <h3 className="text-xs uppercase font-mono tracking-wider text-indigo-600 font-semibold">Optional Diagnostics Tuning</h3>
 
                 <div className="grid grid-cols-1 gap-3">
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-[11px] text-slate-400 font-mono">Target Audience</label>
+                    <label className="text-[11px] text-slate-500 font-mono">Target Audience</label>
                     <input
                       type="text"
                       value={targetAudience}
                       onChange={(e) => setTargetAudience(e.target.value)}
                       placeholder="e.g. Remote software engineers, tea enthusiasts"
-                      className="w-full px-3 py-2 rounded-lg bg-slate-950 border border-slate-800 text-xs focus:border-indigo-500 transition text-slate-200 outline-none"
+                      className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-200 text-xs focus:border-indigo-500 transition text-slate-800 outline-none"
                     />
                   </div>
 
                   <div className="grid grid-cols-2 gap-3">
                     <div className="flex flex-col gap-1.5">
-                      <label className="text-[11px] text-slate-400 font-mono">Budget Constraint</label>
+                      <label className="text-[11px] text-slate-500 font-mono">Budget Constraint</label>
                       <input
                         type="text"
                         value={budget}
                         onChange={(e) => setBudget(e.target.value)}
                         placeholder="e.g. Under $100 / $0 SaaS free-tiers"
-                        className="w-full px-3 py-2 rounded-lg bg-slate-950 border border-slate-800 text-xs focus:border-indigo-500 transition text-slate-200 outline-none"
+                        className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-200 text-xs focus:border-indigo-500 transition text-slate-800 outline-none"
                       />
                     </div>
                     <div className="flex flex-col gap-1.5">
-                      <label className="text-[11px] text-slate-400 font-mono">Time Commit</label>
+                      <label className="text-[11px] text-slate-500 font-mono">Time Commit</label>
                       <input
                         type="text"
                         value={timeCommitment}
                         onChange={(e) => setTimeCommitment(e.target.value)}
                         placeholder="e.g. Weekend hack / 4 hours a week"
-                        className="w-full px-3 py-2 rounded-lg bg-slate-950 border border-slate-800 text-xs focus:border-indigo-500 transition text-slate-200 outline-none"
+                        className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-200 text-xs focus:border-indigo-500 transition text-slate-800 outline-none"
                       />
                     </div>
                   </div>
@@ -344,7 +338,7 @@ export default function App() {
               <button
                 type="submit"
                 disabled={isAnalyzing || !idea.trim()}
-                className="w-full mt-2 py-3 px-4 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-500 hover:to-indigo-600 disabled:from-slate-800 disabled:to-slate-800 disabled:text-slate-500 rounded-xl font-display font-semibold text-sm text-white transition flex items-center justify-center gap-2 cursor-pointer disabled:cursor-not-allowed shadow-lg shadow-indigo-600/10"
+                className="w-full mt-2 py-3 px-4 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-500 hover:to-indigo-600 disabled:from-slate-200 disabled:to-slate-200 disabled:text-slate-400 rounded-xl font-display font-semibold text-sm text-white transition flex items-center justify-center gap-2 cursor-pointer disabled:cursor-not-allowed shadow-md"
               >
                 <Send className="w-4 h-4" />
                 {isAnalyzing ? "Smoking the Code..." : "Run SideHustle Smoke-Test"}
@@ -353,9 +347,9 @@ export default function App() {
           </div>
 
           {/* Quickstart Preset Templates */}
-          <div className="bg-slate-900/60 rounded-2xl border border-slate-800 p-5">
+          <div className="bg-white rounded-2xl border border-slate-200 p-5">
             <h3 className="text-xs uppercase font-mono tracking-widest text-slate-500 mb-3 flex items-center gap-1.5">
-              <Lightbulb className="w-3.5 h-3.5 text-indigo-400" />
+              <Lightbulb className="w-3.5 h-3.5 text-indigo-600" />
               Not inspired yet? Load a preset
             </h3>
             <div className="flex flex-col gap-2">
@@ -363,11 +357,11 @@ export default function App() {
                 <button
                   key={idx}
                   onClick={() => selectPreset(preset)}
-                  className="flex items-start text-left p-2.5 rounded-lg bg-slate-950/40 border border-slate-900 hover:border-indigo-500/30 hover:bg-slate-900 transition gap-2.5 text-xs text-slate-400 hover:text-slate-200"
+                  className="flex items-start text-left p-2.5 rounded-lg bg-slate-50 border border-slate-100 hover:border-indigo-300 hover:bg-indigo-50/30 transition gap-2.5 text-xs text-slate-600 hover:text-indigo-900"
                 >
-                  <ArrowUpRight className="w-3.5 h-3.5 mt-0.5 shrink-0 text-indigo-400" />
+                  <ArrowUpRight className="w-3.5 h-3.5 mt-0.5 shrink-0 text-indigo-600" />
                   <div className="min-w-0">
-                    <span className="font-display font-semibold text-slate-300 block mb-0.5">{preset.title}</span>
+                    <span className="font-display font-semibold text-slate-800 block mb-0.5">{preset.title}</span>
                     <p className="truncate text-[11px] text-slate-500">{preset.idea}</p>
                   </div>
                 </button>
@@ -376,10 +370,10 @@ export default function App() {
           </div>
 
           {/* Saved History Side Panel */}
-          <div className="bg-slate-900/60 rounded-2xl border border-slate-800 p-5 flex flex-col gap-3">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+          <div className="bg-white rounded-2xl border border-slate-200 p-5 flex flex-col gap-3">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-2">
               <h3 className="text-xs uppercase font-mono tracking-widest text-slate-500 flex items-center gap-1.5">
-                <History className="w-3.5 h-3.5 text-indigo-400" />
+                <History className="w-3.5 h-3.5 text-indigo-600" />
                 Saved Concept History ({savedEntries.length})
               </h3>
             </div>
@@ -397,8 +391,8 @@ export default function App() {
 
           {/* Error Message */}
           {errorMsg && (
-            <div className="bg-rose-500/10 border border-rose-500/20 rounded-2xl p-5 flex items-start gap-3.5 text-rose-300 text-sm">
-              <ShieldAlert className="w-5 h-5 shrink-0 text-rose-400 mt-0.5" />
+            <div className="bg-rose-50 border border-rose-100 rounded-2xl p-5 flex items-start gap-3.5 text-rose-800 text-sm shadow-sm">
+              <ShieldAlert className="w-5 h-5 shrink-0 text-rose-600 mt-0.5" />
               <div>
                 <strong className="block font-semibold mb-1">Diagnostic Failed</strong>
                 {errorMsg}
@@ -413,22 +407,22 @@ export default function App() {
 
           {/* Initial Clean State */}
           {!isAnalyzing && !analysisResult && !errorMsg && (
-            <div className="bg-slate-900/30 rounded-2xl border border-dashed border-slate-800 p-12 text-center flex flex-col items-center justify-center min-h-[450px]">
-              <div className="w-16 h-16 bg-slate-900 border border-slate-800 text-indigo-400 rounded-2xl flex items-center justify-center mb-4 shadow-xl">
-                <Moon className="w-8 h-8 animate-pulse text-indigo-400" />
+            <div className="bg-white rounded-2xl border border-dashed border-slate-200 p-12 text-center flex flex-col items-center justify-center min-h-[450px] shadow-sm">
+              <div className="w-16 h-16 bg-slate-50 border border-slate-100 text-indigo-600 rounded-2xl flex items-center justify-center mb-4 shadow-sm">
+                <Moon className="w-8 h-8 animate-pulse text-indigo-600" />
               </div>
-              <h3 className="font-display font-bold text-xl text-slate-200">Awaiting 2 A.M. Inspiration</h3>
+              <h3 className="font-display font-bold text-xl text-slate-850">Awaiting 2 A.M. Inspiration</h3>
               <p className="text-slate-500 text-sm max-w-sm mt-2">
                 Type your side-project concept on the left, load one of our wacky developer presets, or inspect past diagnostics to begin.
               </p>
-              <div className="grid grid-cols-2 gap-4 max-w-md mt-6">
-                <div className="p-3 bg-slate-900/50 rounded-xl border border-slate-800 text-left">
-                  <span className="text-xs font-mono text-indigo-400 block mb-1">REAL COMPETITORS</span>
-                  <p className="text-[11px] text-slate-400">AI maps out true business models and status-quo alternatives.</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-md mt-6 w-full">
+                <div className="p-3 bg-slate-50 rounded-xl border border-slate-100 text-left">
+                  <span className="text-xs font-mono text-indigo-600 block mb-1">REAL COMPETITORS</span>
+                  <p className="text-[11px] text-slate-500">AI maps out true business models and status-quo alternatives.</p>
                 </div>
-                <div className="p-3 bg-slate-900/50 rounded-xl border border-slate-800 text-left">
-                  <span className="text-xs font-mono text-indigo-400 block mb-1">LEAN ARCHITECTURE</span>
-                  <p className="text-[11px] text-slate-400">Saves you from over-engineering with highly realistic stack outlines.</p>
+                <div className="p-3 bg-slate-50 rounded-xl border border-slate-100 text-left">
+                  <span className="text-xs font-mono text-indigo-600 block mb-1">LEAN ARCHITECTURE</span>
+                  <p className="text-[11px] text-slate-500">Saves you from over-engineering with highly realistic stack outlines.</p>
                 </div>
               </div>
             </div>
@@ -439,43 +433,43 @@ export default function App() {
             <div className="flex flex-col gap-6">
 
               {/* Header Reality Card */}
-              <div className="bg-gradient-to-br from-slate-900 to-indigo-950/20 rounded-2xl border border-slate-800 p-6 shadow-xl relative overflow-hidden">
+              <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm relative overflow-hidden">
                 <div className="absolute top-0 right-0 p-4">
-                  <span className="text-[10px] font-mono uppercase bg-indigo-500/10 text-indigo-400 px-2.5 py-1 rounded-full border border-indigo-500/20">
+                  <span className="text-[10px] font-mono uppercase bg-indigo-50 text-indigo-600 px-2.5 py-1 rounded-full border border-indigo-100">
                     Smoke-Test Completed
                   </span>
                 </div>
 
                 <div className="flex items-start gap-4 pr-16">
                   <div>
-                    <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                    <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
                       {analysisResult.projectTitle}
                     </h2>
-                    <p className="text-indigo-300 font-display italic text-sm mt-1">
+                    <p className="text-indigo-600 font-display italic text-sm mt-1">
                       &ldquo;{analysisResult.tagline}&rdquo;
                     </p>
                   </div>
                 </div>
 
                 {/* Sardonically honest verdict box */}
-                <div className="mt-6 bg-slate-950/80 rounded-xl border border-slate-800/80 p-4">
+                <div className="mt-6 bg-slate-50 rounded-xl border border-slate-100 p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <span className="text-xs uppercase font-mono tracking-widest text-slate-500">The 2 A.M. Verdict</span>
                   </div>
-                  <p className="text-slate-300 text-sm leading-relaxed font-sans">
+                  <p className="text-slate-600 text-sm leading-relaxed font-sans">
                     {analysisResult.analysisSummary}
                   </p>
                 </div>
 
                 {/* Utility Export & Save bar */}
-                <div className="flex items-center justify-between border-t border-slate-800 mt-5 pt-4">
+                <div className="flex items-center justify-between border-t border-slate-100 mt-5 pt-4">
                   <div className="flex items-center gap-2">
                     <button
                       onClick={handleSaveResult}
                       className={`py-1.5 px-3.5 rounded-lg border text-xs font-medium font-display transition flex items-center gap-1.5 cursor-pointer ${
                         activeSavedId
-                          ? "bg-emerald-500/10 border-emerald-500/20 text-emerald-400 cursor-default"
-                          : "bg-slate-800 border-slate-700 text-slate-200 hover:bg-slate-700"
+                          ? "bg-emerald-50 border-emerald-100 text-emerald-650 cursor-default"
+                          : "bg-white border-slate-200 text-slate-700 hover:bg-slate-50"
                       }`}
                       disabled={!!activeSavedId}
                     >
@@ -484,23 +478,23 @@ export default function App() {
                     </button>
                     <button
                       onClick={handleCopyMarkdown}
-                      className="py-1.5 px-3.5 rounded-lg bg-slate-800 border border-slate-700 text-slate-200 hover:bg-slate-700 text-xs font-medium font-display transition flex items-center gap-1.5 cursor-pointer"
+                      className="py-1.5 px-3.5 rounded-lg bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-medium font-display transition flex items-center gap-1.5 cursor-pointer"
                       title="Copy DEV.to readme submission template"
                     >
-                      {copiedReport ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                      {copiedReport ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
                       {copiedReport ? "Copied!" : "Export README"}
                     </button>
                   </div>
-                  <span className="text-[10px] font-mono text-slate-500">
+                  <span className="text-[10px] font-mono text-slate-450">
                     Press README to copy DEV.to challenge draft
                   </span>
                 </div>
               </div>
 
               {/* Passion vs Feasibility Score Section */}
-              <div className="bg-slate-900/85 rounded-2xl border border-slate-800 p-6 shadow-xl">
-                <h3 className="text-xs uppercase font-mono tracking-widest text-slate-500 border-b border-slate-800 pb-3 mb-5 flex items-center gap-2">
-                  <Compass className="w-4 h-4 text-indigo-400" />
+              <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+                <h3 className="text-xs uppercase font-mono tracking-widest text-slate-500 border-b border-slate-150 pb-3 mb-5 flex items-center gap-2">
+                  <Compass className="w-4 h-4 text-indigo-600" />
                   Passion vs. Feasibility Matrix
                 </h3>
 
@@ -526,11 +520,11 @@ export default function App() {
                   {matrixEval && (
                     <div className={`p-4 rounded-xl border ${matrixEval.color} flex flex-col gap-2`}>
                       <div className="flex items-center gap-2">
-                        <span className="text-xs font-mono uppercase tracking-widest text-slate-400">Idea Category</span>
-                        <span className="h-1 w-1 rounded-full bg-slate-500" />
+                        <span className="text-xs font-mono uppercase tracking-widest text-slate-550">Idea Category</span>
+                        <span className="h-1 w-1 rounded-full bg-slate-400" />
                         <span className="text-xs font-bold font-display">{matrixEval.label}</span>
                       </div>
-                      <p className="text-xs leading-relaxed text-slate-300">
+                      <p className="text-xs leading-relaxed opacity-90">
                         {matrixEval.desc}
                       </p>
                     </div>
@@ -539,52 +533,52 @@ export default function App() {
               </div>
 
               {/* Competitor Reality Grid */}
-              <div className="bg-slate-900/85 rounded-2xl border border-slate-800 p-6 shadow-xl">
-                <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-5">
+              <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+                <div className="flex items-center justify-between border-b border-slate-150 pb-3 mb-5">
                   <h3 className="text-xs uppercase font-mono tracking-widest text-slate-500 flex items-center gap-2">
-                    <Users className="w-4 h-4 text-indigo-400" />
+                    <Users className="w-4 h-4 text-indigo-600" />
                     Market Landscape & Alternatives
                   </h3>
-                  <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-cyan-500/10 border border-cyan-500/20 text-[10px] text-cyan-400 font-mono">
+                  <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-cyan-50 border border-cyan-100 text-[10px] text-cyan-700 font-mono">
                     <TrendingUp className="w-3 h-3" /> Demand Score: {analysisResult.marketData.demandScore}%
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-3">
-                  <div className="p-3 bg-slate-950/60 rounded-xl border border-slate-800 mb-2">
-                    <span className="text-[10px] font-mono uppercase text-indigo-400 block mb-1">Target Beachhead Market</span>
-                    <p className="text-xs text-slate-300 font-medium">{analysisResult.marketData.targetAudienceSize}</p>
+                  <div className="p-3 bg-slate-50 rounded-xl border border-slate-100 mb-2">
+                    <span className="text-[10px] font-mono uppercase text-indigo-600 block mb-1">Target Beachhead Market</span>
+                    <p className="text-xs text-slate-700 font-medium">{analysisResult.marketData.targetAudienceSize}</p>
                   </div>
 
                   <span className="text-xs font-mono uppercase text-slate-500 mb-1 block">Current Competitors / Alternatives</span>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     {analysisResult.competitors.map((comp, idx) => (
-                      <div key={idx} className="bg-slate-950/40 rounded-xl border border-slate-800/80 p-4 flex flex-col justify-between">
+                      <div key={idx} className="bg-slate-50 rounded-xl border border-slate-100 p-4 flex flex-col justify-between">
                         <div>
-                          <span className="text-sm font-display font-semibold text-slate-200 block mb-2">{comp.name}</span>
+                          <span className="text-sm font-display font-semibold text-slate-800 block mb-2">{comp.name}</span>
                           <div className="mb-2">
-                            <span className="text-[9px] uppercase font-mono tracking-widest text-emerald-400 block">Their Strength</span>
-                            <p className="text-[11px] text-slate-400 mt-0.5 leading-normal">{comp.strength}</p>
+                            <span className="text-[9px] uppercase font-mono tracking-widest text-emerald-600 block">Their Strength</span>
+                            <p className="text-[11px] text-slate-500 mt-0.5 leading-normal">{comp.strength}</p>
                           </div>
                           <div className="mb-2">
-                            <span className="text-[9px] uppercase font-mono tracking-widest text-rose-400 block font-semibold">Their Flaw</span>
-                            <p className="text-[11px] text-slate-400 mt-0.5 leading-normal">{comp.weakness}</p>
+                            <span className="text-[9px] uppercase font-mono tracking-widest text-rose-600 block font-semibold">Their Flaw</span>
+                            <p className="text-[11px] text-slate-500 mt-0.5 leading-normal">{comp.weakness}</p>
                           </div>
                         </div>
-                        <div className="mt-3 pt-2.5 border-t border-slate-800/80">
-                          <span className="text-[10px] font-mono text-indigo-300 block font-medium">Your 10x Angle:</span>
-                          <p className="text-[11px] italic text-indigo-200 mt-1 leading-normal">{comp.differentiationAngle}</p>
+                        <div className="mt-3 pt-2.5 border-t border-slate-150">
+                          <span className="text-[10px] font-mono text-indigo-600 block font-semibold">Your 10x Angle:</span>
+                          <p className="text-[11px] italic text-slate-700 mt-1 leading-normal">{comp.differentiationAngle}</p>
                         </div>
                       </div>
                     ))}
                   </div>
 
-                  <div className="mt-4 bg-slate-950/40 rounded-xl border border-slate-800 p-4">
+                  <div className="mt-4 bg-slate-50 rounded-xl border border-slate-100 p-4">
                     <span className="text-[10px] font-mono uppercase text-slate-500 block mb-2">Relevant Market Macro Trends</span>
                     <ul className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                       {analysisResult.marketData.marketTrends.map((trend, idx) => (
-                        <li key={idx} className="text-xs text-slate-400 flex items-start gap-2 leading-relaxed">
-                          <span className="text-indigo-400 font-bold shrink-0 mt-0.5">•</span>
+                        <li key={idx} className="text-xs text-slate-600 flex items-start gap-2 leading-relaxed">
+                          <span className="text-indigo-600 font-bold shrink-0 mt-0.5">•</span>
                           <span>{trend}</span>
                         </li>
                       ))}
@@ -594,9 +588,9 @@ export default function App() {
               </div>
 
               {/* Technical Architecture Blueprint */}
-              <div className="bg-slate-900/85 rounded-2xl border border-slate-800 p-6 shadow-xl">
-                <h3 className="text-xs uppercase font-mono tracking-widest text-slate-500 border-b border-slate-800 pb-3 mb-5 flex items-center gap-2">
-                  <Cpu className="w-4 h-4 text-indigo-400" />
+              <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+                <h3 className="text-xs uppercase font-mono tracking-widest text-slate-500 border-b border-slate-150 pb-3 mb-5 flex items-center gap-2">
+                  <Cpu className="w-4 h-4 text-indigo-600" />
                   Technical Blueprint & Architecture
                 </h3>
 
@@ -607,32 +601,32 @@ export default function App() {
                       <span className="text-[10px] uppercase font-mono tracking-wider text-slate-500 block mb-2">Recommended Lean Tech Stack</span>
                       <div className="flex flex-wrap gap-1.5">
                         {analysisResult.techArchitecture.recommendedStack.map((tech, idx) => (
-                          <span key={idx} className="text-xs font-mono px-2.5 py-1 rounded bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 font-semibold">
+                          <span key={idx} className="text-xs font-mono px-2.5 py-1 rounded bg-indigo-50 border border-indigo-100 text-indigo-700 font-semibold">
                             {tech}
                           </span>
                         ))}
                       </div>
                     </div>
 
-                    <div className="bg-slate-950/60 rounded-xl border border-slate-800 p-4">
+                    <div className="bg-slate-50 rounded-xl border border-slate-100 p-4">
                       <span className="text-[10px] uppercase font-mono tracking-wider text-slate-500 block mb-1">Architecture Overview</span>
-                      <p className="text-xs text-slate-300 leading-relaxed font-sans">
+                      <p className="text-xs text-slate-600 leading-relaxed font-sans">
                         {analysisResult.techArchitecture.architectureOverview}
                       </p>
                     </div>
                   </div>
 
                   {/* Right metrics */}
-                  <div className="flex flex-col gap-3 bg-slate-950/40 rounded-xl border border-slate-800 p-4 justify-center">
+                  <div className="flex flex-col gap-3 bg-slate-50 rounded-xl border border-slate-100 p-4 justify-center">
                     <div>
                       <span className="text-[10px] uppercase font-mono tracking-wider text-slate-500">Dev Complexity</span>
-                      <span className="block text-sm font-semibold text-white font-display mt-0.5">
+                      <span className="block text-sm font-semibold text-slate-800 font-display mt-0.5">
                         {analysisResult.techArchitecture.developmentComplexity}
                       </span>
                     </div>
                     <div>
                       <span className="text-[10px] uppercase font-mono tracking-wider text-slate-500">Estimated MVP Build</span>
-                      <span className="block text-sm font-semibold text-cyan-400 font-display mt-0.5">
+                      <span className="block text-sm font-semibold text-cyan-700 font-display mt-0.5">
                         {analysisResult.techArchitecture.estimatedBuildTime}
                       </span>
                     </div>
@@ -640,14 +634,14 @@ export default function App() {
                 </div>
 
                 {/* Key architectural risks */}
-                <div className="mt-4 p-4 rounded-xl bg-rose-500/5 border border-rose-500/20">
-                  <span className="text-xs uppercase font-mono tracking-wider text-rose-400 flex items-center gap-1 mb-2">
+                <div className="mt-4 p-4 rounded-xl bg-rose-50 border border-rose-100">
+                  <span className="text-xs uppercase font-mono tracking-wider text-rose-600 flex items-center gap-1 mb-2">
                     <ShieldAlert className="w-3.5 h-3.5" /> Technical Risks & Pitfalls
                   </span>
-                  <ul className="text-xs text-slate-400 flex flex-col gap-2">
+                  <ul className="text-xs text-slate-600 flex flex-col gap-2">
                     {analysisResult.techArchitecture.keyRisks.map((risk, idx) => (
                       <li key={idx} className="flex gap-2">
-                        <span className="text-rose-500 font-bold shrink-0">!</span>
+                        <span className="text-rose-600 font-bold shrink-0">!</span>
                         <span>{risk}</span>
                       </li>
                     ))}
@@ -656,9 +650,9 @@ export default function App() {
               </div>
 
               {/* Monetization Strategy Grid */}
-              <div className="bg-slate-900/85 rounded-2xl border border-slate-800 p-6 shadow-xl">
-                <h3 className="text-xs uppercase font-mono tracking-widest text-slate-500 border-b border-slate-800 pb-3 mb-5 flex items-center gap-2">
-                  <Coins className="w-4 h-4 text-indigo-400" />
+              <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+                <h3 className="text-xs uppercase font-mono tracking-widest text-slate-500 border-b border-slate-150 pb-3 mb-5 flex items-center gap-2">
+                  <Coins className="w-4 h-4 text-indigo-600" />
                   Monetization Matrix
                 </h3>
 
@@ -666,29 +660,29 @@ export default function App() {
                   {analysisResult.monetization.map((money, idx) => {
                     const potentialColor =
                       money.revenuePotential === "High"
-                        ? "text-emerald-400 bg-emerald-500/10 border-emerald-500/20"
+                        ? "text-emerald-700 bg-emerald-50 border-emerald-100"
                         : money.revenuePotential === "Medium"
-                        ? "text-indigo-400 bg-indigo-500/10 border-indigo-500/20"
-                        : "text-slate-400 bg-slate-800 border-slate-700";
+                        ? "text-indigo-700 bg-indigo-50 border-indigo-100"
+                        : "text-slate-600 bg-slate-100 border-slate-200";
 
                     return (
-                      <div key={idx} className="bg-slate-950/50 rounded-xl border border-slate-800/80 p-4 flex flex-col justify-between">
+                      <div key={idx} className="bg-slate-50 rounded-xl border border-slate-100 p-4 flex flex-col justify-between">
                         <div>
                           <div className="flex justify-between items-start gap-2 mb-2">
-                            <span className="font-display font-bold text-sm text-slate-200">
+                            <span className="font-display font-bold text-sm text-slate-800">
                               {money.model}
                             </span>
                             <span className={`text-[9px] uppercase font-mono px-2 py-0.5 rounded-full border ${potentialColor}`}>
                               {money.revenuePotential} Revenue
                             </span>
                           </div>
-                          <p className="text-xs text-slate-400 leading-relaxed font-sans">
+                          <p className="text-xs text-slate-500 leading-relaxed font-sans">
                             {money.description}
                           </p>
                         </div>
-                        <div className="mt-4 pt-3 border-t border-slate-800/50 flex justify-between items-center">
-                          <span className="text-[10px] font-mono text-slate-500">Difficulty</span>
-                          <span className="text-[11px] font-mono text-slate-300 font-semibold">{money.difficulty}</span>
+                        <div className="mt-4 pt-3 border-t border-slate-150 flex justify-between items-center">
+                          <span className="text-[10px] font-mono text-slate-400">Difficulty</span>
+                          <span className="text-[11px] font-mono text-slate-600 font-semibold">{money.difficulty}</span>
                         </div>
                       </div>
                     );
@@ -697,18 +691,18 @@ export default function App() {
               </div>
 
               {/* Interactive Roadmap Phase List */}
-              <div className="bg-slate-900/85 rounded-2xl border border-slate-800 p-6 shadow-xl">
-                <h3 className="text-xs uppercase font-mono tracking-widest text-slate-500 border-b border-slate-800 pb-3 mb-5 flex items-center gap-2">
-                  <ListChecks className="w-4 h-4 text-indigo-400" />
+              <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+                <h3 className="text-xs uppercase font-mono tracking-widest text-slate-500 border-b border-slate-150 pb-3 mb-5 flex items-center gap-2">
+                  <ListChecks className="w-4 h-4 text-indigo-600" />
                   Lean Growth & Launch Roadmap
                 </h3>
 
                 <div className="flex flex-col gap-5">
                   {analysisResult.growthRoadmap.map((milestone, mIdx) => (
-                    <div key={mIdx} className="bg-slate-950/40 rounded-xl border border-slate-800 p-4">
-                      <div className="flex justify-between items-center border-b border-slate-800/60 pb-2 mb-3">
-                        <span className="text-xs font-display font-bold text-slate-200">{milestone.phase}</span>
-                        <span className="text-[10px] font-mono text-cyan-400 bg-cyan-500/5 border border-cyan-500/20 px-2 py-0.5 rounded">
+                    <div key={mIdx} className="bg-slate-50 rounded-xl border border-slate-100 p-4">
+                      <div className="flex justify-between items-center border-b border-slate-150 pb-2 mb-3">
+                        <span className="text-xs font-display font-bold text-slate-800">{milestone.phase}</span>
+                        <span className="text-[10px] font-mono text-cyan-700 bg-cyan-50 border border-cyan-150 px-2 py-0.5 rounded font-semibold">
                           {milestone.timeline}
                         </span>
                       </div>
@@ -724,14 +718,14 @@ export default function App() {
                               onClick={() => setCheckedActions(prev => ({ ...prev, [actionKey]: !isChecked }))}
                               className={`flex items-start gap-2.5 p-2 rounded-lg cursor-pointer transition ${
                                 isChecked
-                                  ? "bg-indigo-500/5 text-slate-400"
-                                  : "hover:bg-slate-900 text-slate-300"
+                                  ? "bg-indigo-50/50 text-slate-500"
+                                  : "hover:bg-indigo-50/30 text-slate-700"
                               }`}
                             >
                               <div className={`mt-0.5 shrink-0 w-4 h-4 border rounded flex items-center justify-center transition-all ${
                                 isChecked
-                                  ? "bg-indigo-500 border-indigo-500 text-slate-950"
-                                  : "border-slate-700"
+                                  ? "bg-indigo-600 border-indigo-600 text-white"
+                                  : "border-slate-300"
                               }`}>
                                 {isChecked && <Check className="w-3 h-3 stroke-[3]" />}
                               </div>
@@ -748,9 +742,9 @@ export default function App() {
               </div>
 
               {/* Hard Reality-Check Reflection Questions */}
-              <div className="bg-slate-900/85 rounded-2xl border border-slate-800 p-6 shadow-xl">
-                <h3 className="text-xs uppercase font-mono tracking-widest text-slate-500 border-b border-slate-800 pb-3 mb-4 flex items-center gap-2">
-                  <HelpCircle className="w-4 h-4 text-indigo-400" />
+              <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+                <h3 className="text-xs uppercase font-mono tracking-widest text-slate-500 border-b border-slate-150 pb-3 mb-4 flex items-center gap-2">
+                  <HelpCircle className="w-4 h-4 text-indigo-600" />
                   Honest Reality-Check Questions
                 </h3>
                 <p className="text-xs text-slate-500 leading-normal mb-4 font-sans">
@@ -759,9 +753,9 @@ export default function App() {
 
                 <div className="flex flex-col gap-3.5">
                   {analysisResult.realityCheckQuestions.map((question, idx) => (
-                    <div key={idx} className="flex gap-3 p-3.5 bg-slate-950/80 rounded-xl border border-slate-800">
-                      <span className="text-sm font-mono text-indigo-400 font-bold">0{idx + 1}.</span>
-                      <p className="text-xs text-slate-300 font-medium leading-relaxed font-sans">{question}</p>
+                    <div key={idx} className="flex gap-3 p-3.5 bg-slate-50 rounded-xl border border-slate-100">
+                      <span className="text-sm font-mono text-indigo-600 font-bold">0{idx + 1}.</span>
+                      <p className="text-xs text-slate-700 font-medium leading-relaxed font-sans">{question}</p>
                     </div>
                   ))}
                 </div>
@@ -781,9 +775,9 @@ export default function App() {
             initial={{ opacity: 0, y: 50, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="fixed bottom-6 right-6 z-50 py-3 px-5 rounded-xl bg-slate-900 text-slate-100 border border-indigo-500/30 shadow-2xl flex items-center gap-2.5 font-sans"
+            className="fixed bottom-6 right-6 z-50 py-3 px-5 rounded-xl bg-white text-slate-800 border border-indigo-100 shadow-xl flex items-center gap-2.5 font-sans"
           >
-            <div className="p-1 rounded bg-indigo-500/20 text-indigo-400 shrink-0">
+            <div className="p-1 rounded bg-indigo-50 text-indigo-600 shrink-0">
               <Sparkles className="w-4 h-4" />
             </div>
             <span className="text-xs font-semibold">{toastMessage}</span>
@@ -792,7 +786,7 @@ export default function App() {
       </AnimatePresence>
 
       {/* Footnote */}
-      <footer className="border-t border-slate-900 py-8 px-6 mt-12 text-center text-slate-600 text-xs font-mono">
+      <footer className="border-t border-slate-200 py-8 px-6 mt-12 text-center text-slate-500 text-xs font-mono">
         <p>&copy; 2026 SideHustle Smoke-Test. Driven securely via Google Gemini 3.5-flash. Happy Hacking!</p>
       </footer>
 

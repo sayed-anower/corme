@@ -27,32 +27,32 @@ export default function Gauge({ value, label, subtitle, color, size = "md" }: Ga
 
   const colorThemes = {
     cyan: {
-      stroke: "stroke-cyan-400",
-      text: "text-cyan-400",
+      stroke: "stroke-cyan-500",
+      text: "text-cyan-600",
       bg: "bg-cyan-500/10",
-      glow: "shadow-[0_0_15px_rgba(34,211,238,0.3)]",
-      border: "border-cyan-500/30",
+      glow: "shadow-[0_0_15px_rgba(6,182,212,0.15)]",
+      border: "border-cyan-200",
     },
     indigo: {
-      stroke: "stroke-indigo-400",
-      text: "text-indigo-400",
+      stroke: "stroke-indigo-500",
+      text: "text-indigo-600",
       bg: "bg-indigo-500/10",
-      glow: "shadow-[0_0_15px_rgba(99,102,241,0.3)]",
-      border: "border-indigo-500/30",
+      glow: "shadow-[0_0_15px_rgba(99,102,241,0.15)]",
+      border: "border-indigo-200",
     },
     rose: {
-      stroke: "stroke-rose-400",
-      text: "text-rose-400",
+      stroke: "stroke-rose-500",
+      text: "text-rose-600",
       bg: "bg-rose-500/10",
-      glow: "shadow-[0_0_15px_rgba(244,63,94,0.3)]",
-      border: "border-rose-500/30",
+      glow: "shadow-[0_0_15px_rgba(244,63,94,0.15)]",
+      border: "border-rose-200",
     },
     emerald: {
-      stroke: "stroke-emerald-400",
-      text: "text-emerald-400",
+      stroke: "stroke-emerald-500",
+      text: "text-emerald-600",
       bg: "bg-emerald-500/10",
-      glow: "shadow-[0_0_15px_rgba(16,185,129,0.3)]",
-      border: "border-emerald-500/30",
+      glow: "shadow-[0_0_15px_rgba(16,185,129,0.15)]",
+      border: "border-emerald-200",
     },
   };
 
@@ -82,7 +82,7 @@ export default function Gauge({ value, label, subtitle, color, size = "md" }: Ga
   const currentSize = sizeClasses[size];
 
   return (
-    <div className="flex flex-col items-center justify-center p-4 bg-slate-900/60 rounded-2xl border border-slate-800 backdrop-blur-sm shadow-xl">
+    <div className="flex flex-col items-center justify-center p-4 bg-white rounded-2xl border border-slate-100 shadow-sm">
       <div className={`relative flex items-center justify-center ${currentSize.box}`}>
         {/* Glow effect backdrops */}
         <div className={`absolute inset-4 rounded-full ${theme.bg} blur-xl opacity-60`} />
@@ -94,7 +94,7 @@ export default function Gauge({ value, label, subtitle, color, size = "md" }: Ga
         >
           {/* Background circle track */}
           <circle
-            className="text-slate-800 stroke-current"
+            className="text-slate-100 stroke-current"
             strokeWidth="8"
             fill="transparent"
             r={radius}
@@ -117,19 +117,19 @@ export default function Gauge({ value, label, subtitle, color, size = "md" }: Ga
 
         {/* Center Text (Value & Label) */}
         <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <span className={`font-mono tracking-tighter text-slate-100 ${currentSize.centerText}`}>
+          <span className={`font-mono tracking-tighter text-slate-950 ${currentSize.centerText}`}>
             {value}
-            <span className="text-sm font-normal text-slate-500">%</span>
+            <span className="text-sm font-normal text-slate-400">%</span>
           </span>
           {subtitle && (
-            <span className="text-[10px] uppercase font-mono tracking-widest text-slate-500 mt-0.5">
+            <span className="text-[10px] uppercase font-mono tracking-widest text-slate-400 mt-0.5">
               {subtitle}
             </span>
           )}
         </div>
       </div>
 
-      <span className={`mt-3 font-display font-medium text-slate-300 ${currentSize.labelStyle}`}>
+      <span className={`mt-3 font-display font-medium text-slate-700 ${currentSize.labelStyle}`}>
         {label}
       </span>
     </div>

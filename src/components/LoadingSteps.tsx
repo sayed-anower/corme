@@ -131,25 +131,25 @@ export default function LoadingSteps({ onCancel }: LoadingStepsProps) {
   }, [activeStepIdx]);
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 bg-slate-950 rounded-2xl border border-indigo-500/30 neon-border flex flex-col gap-6">
-      <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+    <div className="w-full max-w-2xl mx-auto p-6 bg-white rounded-2xl border border-indigo-100 shadow-md flex flex-col gap-6">
+      <div className="flex items-center justify-between border-b border-slate-100 pb-4">
         <div className="flex items-center gap-3">
-          <Terminal className="w-6 h-6 text-indigo-400 animate-pulse" />
+          <Terminal className="w-6 h-6 text-indigo-500 animate-pulse" />
           <div>
-            <h3 className="font-display font-semibold text-lg text-slate-100">AI Diagnostic In Progress</h3>
-            <p className="text-xs text-slate-400 font-mono">Running realistic feasibility check...</p>
+            <h3 className="font-display font-semibold text-lg text-slate-900">AI Diagnostic In Progress</h3>
+            <p className="text-xs text-slate-500 font-mono">Running realistic feasibility check...</p>
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <RefreshCw className="w-4 h-4 text-slate-500 animate-spin" />
-          <span className="text-xs font-mono text-indigo-400">{Math.round(overallProgress)}%</span>
+          <RefreshCw className="w-4 h-4 text-slate-400 animate-spin" />
+          <span className="text-xs font-mono text-indigo-600">{Math.round(overallProgress)}%</span>
         </div>
       </div>
 
       {/* Progress bar */}
-      <div className="w-full h-1.5 bg-slate-900 rounded-full overflow-hidden">
+      <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
         <motion.div
-          className="h-full bg-gradient-to-r from-indigo-500 to-cyan-450"
+          className="h-full bg-gradient-to-r from-indigo-500 to-cyan-500"
           initial={{ width: 0 }}
           animate={{ width: `${overallProgress}%` }}
           transition={{ ease: "easeInOut" }}
@@ -165,20 +165,20 @@ export default function LoadingSteps({ onCancel }: LoadingStepsProps) {
               key={step.id}
               className={`flex items-center justify-between p-4 rounded-xl border transition-all duration-300 ${
                 step.status === "completed"
-                  ? "bg-emerald-500/5 border-emerald-500/20 text-slate-300"
+                  ? "bg-emerald-50/50 border-emerald-100 text-slate-700"
                   : step.status === "running"
-                  ? "bg-indigo-500/5 border-indigo-500/30 text-slate-100 shadow-[0_0_15px_rgba(99,102,241,0.05)]"
-                  : "bg-slate-900/40 border-slate-900 text-slate-500"
+                  ? "bg-indigo-50/50 border-indigo-100 text-slate-900 shadow-sm"
+                  : "bg-slate-50/30 border-slate-100 text-slate-400"
               }`}
             >
               <div className="flex items-center gap-3">
                 <div
                   className={`p-2 rounded-lg ${
                     step.status === "completed"
-                      ? "bg-emerald-500/10 text-emerald-400"
+                      ? "bg-emerald-100 text-emerald-600"
                       : step.status === "running"
-                      ? "bg-indigo-500/20 text-indigo-400 animate-pulse"
-                      : "bg-slate-800 text-slate-600"
+                      ? "bg-indigo-100 text-indigo-600 animate-pulse"
+                      : "bg-slate-100 text-slate-400"
                   }`}
                 >
                   <Icon className="w-4 h-4" />
@@ -188,17 +188,17 @@ export default function LoadingSteps({ onCancel }: LoadingStepsProps) {
 
               <div>
                 {step.status === "completed" ? (
-                  <CheckCircle2 className="w-5 h-5 text-emerald-400 animate-bounce" />
+                  <CheckCircle2 className="w-5 h-5 text-emerald-500 animate-bounce" />
                 ) : step.status === "running" ? (
                   <div className="flex items-center gap-1.5">
                     <span className="flex h-2 w-2 relative">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
                       <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
                     </span>
-                    <span className="text-[10px] uppercase font-mono tracking-wider text-indigo-400">Analyzing</span>
+                    <span className="text-[10px] uppercase font-mono tracking-wider text-indigo-600 font-semibold">Analyzing</span>
                   </div>
                 ) : (
-                  <span className="text-xs font-mono text-slate-600">Pending</span>
+                  <span className="text-xs font-mono text-slate-400">Pending</span>
                 )}
               </div>
             </div>
@@ -207,7 +207,7 @@ export default function LoadingSteps({ onCancel }: LoadingStepsProps) {
       </div>
 
       {/* Mini Console Logs */}
-      <div className="bg-slate-900 rounded-xl border border-slate-800 p-4 font-mono text-xs text-slate-400 flex flex-col gap-1.5 max-h-48 overflow-y-auto custom-scrollbar">
+      <div className="bg-slate-950 rounded-xl border border-slate-900 p-4 font-mono text-xs text-slate-300 flex flex-col gap-1.5 max-h-48 overflow-y-auto custom-scrollbar">
         {terminalLogs.map((log, idx) => {
           let style = "text-slate-400";
           if (log.startsWith("[ACTIVE]")) style = "text-indigo-300";
@@ -227,7 +227,7 @@ export default function LoadingSteps({ onCancel }: LoadingStepsProps) {
       {onCancel && (
         <button
           onClick={onCancel}
-          className="text-center py-2 px-4 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-slate-200 text-xs font-mono border border-slate-800 transition"
+          className="text-center py-2 px-4 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-600 hover:text-slate-800 text-xs font-mono border border-slate-200 transition"
         >
           Cancel Diagnostic
         </button>
