@@ -12,7 +12,8 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x, 20.x, 22.x]
+        # 💡 Removed 18.x since @tailwindcss/oxide and Vite require >= 20.x
+        node-version: [20.x, 22.x]
 
     steps:
     - uses: actions/checkout@v4
@@ -21,6 +22,7 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
+        cache: 'npm' # Optional tip: caching dependencies speeds up your builds!
 
     - name: Build
       run: |
